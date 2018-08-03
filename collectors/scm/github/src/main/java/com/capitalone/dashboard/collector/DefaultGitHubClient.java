@@ -87,7 +87,7 @@ public class DefaultGitHubClient implements GitHubClient {
         GitHubParsed gitHubParsed = new GitHubParsed(repoUrl);
         String apiUrl = gitHubParsed.getApiUrl();
 
-        String queryUrl = apiUrl.concat("/commits?sha=" + repo.getBranch()
+        String queryUrl = apiUrl.concat("/commits/" + repo.getBranch()
                 + "&since=" + getTimeForApi(getRunDate(repo, firstRun)));
         String decryptedPassword = decryptString(repo.getPassword(), settings.getKey());
         String personalAccessToken = (String) repo.getOptions().get("personalAccessToken");
